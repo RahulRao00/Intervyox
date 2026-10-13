@@ -166,7 +166,7 @@ Rubric dimensions: relevance, technical correctness (where applicable), clarity,
 **Implementation progress** (ticked items are done)
 
 - [x] Requirements, literature review, architecture and DB design
-- [ ] Spring Boot project setup
+- [x] Spring Boot project setup
 - [ ] MySQL schema and entities
 - [ ] Registration and login with JWT
 - [ ] Protected endpoint (/api/users/me)
