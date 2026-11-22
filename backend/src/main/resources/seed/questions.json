@@ -1,0 +1,317 @@
+[
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "Explain the difference between SQL and NoSQL databases. When would you choose one over the other?",
+    "idealAnswerOutline": "1. Data structure: Relational schemas (tables, rows) vs flexible models (document, key-value, column-family, graph). 2. ACID compliance and transaction guarantees in SQL vs BASE and eventual consistency in NoSQL. 3. Scaling: Vertical scaling vs horizontal sharding. 4. Use cases: SQL for structured financial/e-commerce data requiring strong integrity; NoSQL for massive unstructured/semi-structured event streams, real-time analytics, or flexible catalogs."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "What is REST and what are the key HTTP methods used in a RESTful API?",
+    "idealAnswerOutline": "1. REST (Representational State Transfer) architectural style: stateless, client-server, cacheable, uniform interface. 2. Key methods: GET (read/idempotent), POST (create/non-idempotent), PUT (replace/idempotent), PATCH (partial update), DELETE (remove/idempotent). 3. Standard HTTP status codes (2xx, 4xx, 5xx)."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "How would you design a caching strategy for a high-traffic read-heavy backend service to prevent cache stampede and stale data?",
+    "idealAnswerOutline": "1. Cache patterns: Cache-Aside (Lazy loading) vs Write-Through / Write-Behind. 2. Cache stampede mitigation: Probabilistic early expiration (XFetch), mutex locks / single-flight request coalescing, background pre-warming. 3. Invalidation: TTL + explicit event-driven invalidation (CDC/message queue). 4. Multi-level caching (L1 in-memory Caffeine/Guava + L2 distributed Redis)."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "Explain database indexing. How do B-Trees work, and why does an index sometimes slow down write operations?",
+    "idealAnswerOutline": "1. B-Tree structure: Balanced multi-way search tree with nodes stored on disk pages, O(log N) lookup/range scan. 2. Clustered vs non-clustered / secondary index. 3. Composite indexes and leftmost prefix rule. 4. Trade-off: Reads accelerate via page pointers, but every INSERT/UPDATE/DELETE requires updating index trees and potentially causing page splits and rebalancing."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "How do you guarantee exactly-once message processing in a distributed system with Apache Kafka or RabbitMQ?",
+    "idealAnswerOutline": "1. Reality of network partitions: transport is at-least-once or at-most-once. 2. Kafka producer idempotence (PID + sequence numbers) and transactional producer. 3. Consumer end idempotency: deduplication table using unique message key/hash within a DB transaction. 4. Outbox pattern for publishing events atomically with state changes."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "Walk through how you would handle distributed transactions across microservices without two-phase commit (2PC).",
+    "idealAnswerOutline": "1. Drawbacks of 2PC (blocking, single point of failure coordinator, poor latency). 2. Saga Pattern: Choreography (event-driven) vs Orchestration (central coordinator). 3. Compensating transactions to rollback partial failures. 4. Idempotency and semantic locking / pending states. 5. Observability and dead-letter queue recovery."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "Tell me about a time you had to learn a new framework or technology quickly under deadline pressure.",
+    "idealAnswerOutline": "1. Situation: Describe the project context, deadline, and unfamiliar technology. 2. Action: Structured approach to learning (docs, tutorials, building a quick prototype, consulting colleagues). 3. Result: Successful deployment, lessons learned, and knowledge sharing with the team."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Describe a production outage or critical bug you caused or investigated. How did you diagnose it, resolve it, and prevent recurrence?",
+    "idealAnswerOutline": "1. Immediate triage: Rollback or feature flag toggle, status communication to stakeholders. 2. Root cause analysis: Examining logs, metrics, APM traces. 3. Resolution and post-mortem (blameless retrospective, action items like alerts, tests, or runbooks)."
+  },
+  {
+    "targetRole": "Backend Developer",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "How do you handle a major architectural disagreement with a senior engineer or architect about system design?",
+    "idealAnswerOutline": "1. Objectivity: Base discussion on technical metrics (throughput, latency, maintainability, team skill set) rather than ego. 2. Active listening: Understand their constraints and concerns. 3. Prototyping / benchmark spikes to test hypotheses. 4. Disagree and commit once a decision is reached."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "What are the core differences between the CSS box-sizing values 'content-box' and 'border-box'?",
+    "idealAnswerOutline": "1. content-box: width and height apply only to content; padding and border add to total element dimensions. 2. border-box: width and height include content, padding, and border. 3. Why border-box is standard in modern CSS resets for predictable layout calculation."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "Explain the concept of component state and props in React. What are the key differences?",
+    "idealAnswerOutline": "1. Props: Read-only inputs passed from parent to child, enabling configurability and data flow down the tree. 2. State: Internal, mutable data managed by the component (e.g. useState/useReducer) that triggers re-rendering when updated. 3. One-way data binding and unidirectional data flow."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "How does React's reconciliation algorithm and Virtual DOM work? How do keys help?",
+    "idealAnswerOutline": "1. Virtual DOM tree representation in memory. 2. Diffing heuristics: elements of different types generate different trees; keys match child elements between renders. 3. Stable keys prevent unwanted DOM unmount/remount, preserve input state, and optimize list updates. 4. Avoiding array indices as keys when items can reorder or delete."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "What are Core Web Vitals (LCP, INP, CLS) and how would you optimize each in a modern Single Page Application?",
+    "idealAnswerOutline": "1. LCP (Largest Contentful Paint): Optimize hero images (modern formats AVIF/WebP, preload, fetchpriority='high'), eliminate render-blocking CSS/JS. 2. INP (Interaction to Next Paint): Break long tasks (requestIdleCallback, Web Workers), avoid heavy synchronous JS on input handlers. 3. CLS (Cumulative Layout Shift): Explicit width/height on images and video, avoid injecting dynamic content above the fold without reserved dimensions."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "How would you design a micro-frontend architecture for a large enterprise dashboard application?",
+    "idealAnswerOutline": "1. Integration techniques: Module Federation (Webpack/Vite), web components, or iframe isolation. 2. Shared dependencies and version management. 3. Cross-application communication: Custom events, shared reactive store, or URL state. 4. Styling isolation (CSS Modules, Tailwind prefixing, Shadow DOM). 5. CI/CD independent deployability."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "Explain browser rendering pipeline (DOM -> CSSOM -> Render Tree -> Layout -> Paint -> Composite) and how to optimize for 60fps animations.",
+    "idealAnswerOutline": "1. Detailed stages from HTML/CSS parse to GPU compositing. 2. Triggers for Reflow (Layout), Repaint, and Composite-only operations. 3. GPU acceleration using transform and opacity. 4. will-change property and avoiding layout thrashing (forced synchronous layout by interleaving DOM reads and writes)."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "How do you ensure your web applications are accessible (a11y) to all users including those with disabilities?",
+    "idealAnswerOutline": "1. Semantic HTML elements (nav, main, button, input) as foundation. 2. ARIA roles and attributes when custom elements are necessary. 3. Keyboard navigability, focus management, and skip links. 4. Color contrast compliance (WCAG AA/AAA) and screen reader testing."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Describe a scenario where a designer provided mockups with complex animations that significantly impacted performance. How did you handle it?",
+    "idealAnswerOutline": "1. Collaborative approach: Validate UX intent with designer. 2. Profiling: Demonstrate frame drops using Chrome DevTools Performance panel. 3. Pragmatic compromise: Propose CSS transform/opacity equivalent or reduced motion option without sacrificing visual appeal. 4. Maintaining constructive design-engineering partnership."
+  },
+  {
+    "targetRole": "Frontend Developer",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "How do you balance rapid delivery of new product features with managing technical debt in a fast-paced frontend codebase?",
+    "idealAnswerOutline": "1. Categorizing technical debt (crucial stability risk vs minor refactoring). 2. The Boy Scout rule: leave code cleaner than you found it during feature work. 3. Dedicating a percentage (e.g. 15-20%) of sprint bandwidth to architectural improvements and test coverage. 4. Communicating business risk of unaddressed tech debt to product managers."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "Explain the difference between HashMap, HashTable, and ConcurrentHashMap in Java.",
+    "idealAnswerOutline": "1. HashMap: Non-synchronized, allows one null key and multiple null values, not thread-safe. 2. HashTable: Legacy class, synchronized at method level (monolithic lock), poor concurrency, disallows null. 3. ConcurrentHashMap: Lock striping / CAS operations with Node-level locking, high throughput in concurrent environments, disallows null keys and values."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "What is the Java Memory Model? Differentiate between Stack memory and Heap memory.",
+    "idealAnswerOutline": "1. Stack: Stores thread-local primitive local variables and references to heap objects, automatically managed per method frame call/return. 2. Heap: Stores all created objects and arrays, shared across threads, managed by Garbage Collector. 3. Metaspace/PermGen for class metadata. 4. Memory errors: StackOverflowError vs OutOfMemoryError."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "How does Spring Boot's dependency injection work? Explain the difference between Singleton and Prototype bean scopes.",
+    "idealAnswerOutline": "1. Inversion of Control (IoC) Container manages bean lifecycle, wiring, and dependency injection (Constructor, Setter, Field injection - constructor preferred). 2. Singleton: One shared instance per Spring ApplicationContext (default). 3. Prototype: New instance created every time requested or injected. 4. Potential pitfalls: Injecting Prototype bean into Singleton bean requires ObjectFactory or @Lookup."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "Explain how Java 21 Virtual Threads (Project Loom) differ from platform threads, and what pitfalls to avoid.",
+    "idealAnswerOutline": "1. Platform threads: 1:1 mapping to OS kernel threads, high memory footprint (~1MB stack), context switch overhead. 2. Virtual threads: M:N mapping managed by JVM carrier threads, ultra-lightweight (~few KB), unmounts when blocked on I/O. 3. Pitfalls: Thread pinning when executing inside synchronized blocks or native code (use ReentrantLock instead); avoiding ThreadLocal abuse."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "How does the G1 Garbage Collector work compared to ZGC? When would you choose one over the other for a low-latency microservice?",
+    "idealAnswerOutline": "1. G1 GC: Region-based heap layout, incremental concurrent marking, pause time targets, mixed collections collecting regions with most garbage. 2. ZGC: Concurrent, non-blocking colored pointers and load barriers, sub-millisecond max pause times regardless of heap size (up to terabytes). 3. Trade-offs: ZGC consumes slightly more CPU throughput for memory barriers; G1 has higher overall throughput when latency spikes of 50-100ms are acceptable."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "Deep dive into Spring's @Transactional mechanism. How do proxies work, and why does calling a @Transactional method from within the same class fail to apply the transaction?",
+    "idealAnswerOutline": "1. Spring AOP Dynamic Proxy (JDK dynamic proxy or CGLIB) intercepts external invocations to open, commit, or rollback transactions via PlatformTransactionManager. 2. Self-invocation issue: Internal 'this.method()' calls bypass the AOP proxy wrapper, so transaction advice is never executed. 3. Solutions: Self-injection (@Lazy), refactoring to a separate service class, or programmatic TransactionTemplate."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "How do you stay up-to-date with modern Java features, library updates, and security vulnerabilities?",
+    "idealAnswerOutline": "1. Official JDK releases (6-month cadence, LTS releases). 2. Tech newsletters, JEP tracking, Java User Groups (JUGs), GitHub release notes. 3. Automated security scanning tools (Dependabot, Snyk, OWASP Dependency-Check) in CI pipelines."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Describe a time you refactored a legacy Java codebase to improve performance or testability. What was your strategy to avoid breaking existing functionality?",
+    "idealAnswerOutline": "1. Baseline: Establish comprehensive unit and integration test coverage before changing code. 2. Incremental refactoring: Strangler fig pattern or small commit chunks. 3. Profiling: Measuring performance before and after (JProfiler, VisualVM, JMH benchmarks). 4. Code review and monitoring upon rollout."
+  },
+  {
+    "targetRole": "Java Developer",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "How do you mentor junior developers to write clean, maintainable, and idiomatic Java code rather than just code that compiles?",
+    "idealAnswerOutline": "1. Constructive code reviews: Explaining 'why' rather than just 'what'. 2. Pair programming on complex tasks. 3. Promoting SOLID principles, clean architecture, and modern Java idioms (records, pattern matching, streams where appropriate). 4. Creating psychological safety to ask questions and learn from mistakes."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "What is the difference between WHERE and HAVING clauses in SQL?",
+    "idealAnswerOutline": "1. WHERE filters individual rows before any grouping occurs; cannot use aggregate functions. 2. HAVING filters aggregated groups after the GROUP BY clause execution. 3. Query execution order: FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "Explain the difference between correlation and causation with an example from real business data.",
+    "idealAnswerOutline": "1. Correlation: Statistical association showing two variables move together. 2. Causation: Direct cause-and-effect relationship where one variable drives change in another. 3. Example: Ice cream sales and drowning rates correlate due to temperature (confounding variable). 4. Establishing causation via randomized A/B testing or causal inference."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "Explain SQL Window Functions. How do ROW_NUMBER(), RANK(), and DENSE_RANK() differ?",
+    "idealAnswerOutline": "1. Window functions perform calculations across a set of rows related to the current row without collapsing rows like GROUP BY. 2. ROW_NUMBER(): Unique sequential integer assigned to each row regardless of ties. 3. RANK(): Tied rows receive identical rank, with subsequent ranks skipped (e.g. 1, 2, 2, 4). 4. DENSE_RANK(): Tied rows receive identical rank, with no gaps in rank numbers (e.g. 1, 2, 2, 3)."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "How do you approach data cleaning when handling missing values, outliers, and duplicate entries in Python or SQL?",
+    "idealAnswerOutline": "1. Missing data: Understand missing mechanism (MCAR, MAR, MNAR); strategies include imputation (median/mean/mode/model-based) vs deletion. 2. Outliers: Detection via IQR, Z-scores, boxplots; treatment via capping (Winsorizing), transformation, or removal if erroneous. 3. Duplicates: Distinguish exact duplicates vs entity resolution across multiple systems. 4. Documenting assumptions and data provenance."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "Design an A/B testing experiment to measure whether a checkout page redesign increases conversion rate. How do you calculate sample size and avoid p-hacking?",
+    "idealAnswerOutline": "1. Hypothesis formulation: Null vs Alternative hypothesis, Primary KPI (conversion rate) and guardrail metrics (average order value, page latency). 2. Power analysis: Minimum Detectable Effect (MDE), significance level (alpha = 0.05), statistical power (1 - beta = 0.80), baseline conversion. 3. Mitigating p-hacking: Pre-register test duration, fixed-sample test or sequential testing with alpha spending function, avoid stopping early on random spikes."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "How would you build a customer lifetime value (CLV) model to segment churn risk and identify high-value customer cohorts?",
+    "idealAnswerOutline": "1. Historical CLV calculation vs Predictive CLV (BG/NBD or machine learning models). 2. Key features: Recency, Frequency, Monetary value (RFM), acquisition channel, interaction frequency. 3. Cohort analysis based on signup month to observe retention decay curves. 4. Actionable business insights: Guiding customer success and marketing budget allocation."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "How do you communicate complex statistical or quantitative findings to non-technical business stakeholders?",
+    "idealAnswerOutline": "1. Bottom-Line Up Front (BLUF): Start with executive summary and actionable recommendations. 2. Data visualization: Use intuitive charts (bar, line) instead of complex statistical distributions. 3. Translate metrics into business impact ($ revenue, churn %, hours saved). 4. Welcoming questions and clarifying assumptions."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Describe a project where your data analysis led to a counterintuitive insight that contradicted what leadership expected.",
+    "idealAnswerOutline": "1. Context: The initial belief held by management vs what the data revealed. 2. Rigor: Double-checking queries, validating data sources, and running sensitivity analyses. 3. Presentation: Presenting evidence objectively with empathy, highlighting opportunity rather than assigning blame. 4. Positive outcome: How leadership adjusted strategy based on the findings."
+  },
+  {
+    "targetRole": "Data Analyst",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "How do you prioritize multiple urgent ad-hoc data requests from different department heads while maintaining progress on long-term analytics initiatives?",
+    "idealAnswerOutline": "1. Impact vs Effort matrix: Assessing commercial urgency and decision consequence of each ad-hoc request. 2. Self-serve empowerment: Building automated dashboards and data models so stakeholders can query basic metrics independently. 3. Transparent communication: Setting realistic SLAs and keeping department heads updated. 4. Protecting focused deep-work time for core infrastructure."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "What are your greatest professional strengths, and what is one area you are actively working to improve?",
+    "idealAnswerOutline": "1. Strengths: Specific, demonstrable qualities backed by brief examples (e.g. system troubleshooting, empathetic leadership, clear technical documentation). 2. Area for improvement: A genuine weakness (not a cliché), accompanied by concrete actions already taken to improve (e.g. taking public speaking workshops, practicing delegation). 3. Self-awareness and growth mindset."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "EASY",
+    "questionText": "Why are you interested in joining our company, and where do you see your career heading in the next 3 to 5 years?",
+    "idealAnswerOutline": "1. Company interest: Specific knowledge of company products, culture, and market trajectory. 2. Alignment: How the role matches personal skills and career goals. 3. 3-5 year vision: Growth trajectory, deepening technical expertise, and taking on greater leadership or architectural responsibilities."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Describe a situation where you had to work closely with a difficult team member. How did you manage the relationship?",
+    "idealAnswerOutline": "1. Situation: Describe the friction without villainizing the coworker (e.g. conflicting communication styles, mismatched priorities). 2. Action: 1-on-1 dialogue to understand their perspective, establishing shared norms and transparent expectations. 3. Result: Improved collaboration, successful project delivery, and mutual respect."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "MEDIUM",
+    "questionText": "Tell me about a time when a project scope changed drastically midway through development. How did you adapt?",
+    "idealAnswerOutline": "1. Situation: Sudden shift in business requirements or market conditions. 2. Action: Re-evaluating backlog, identifying reusable components, communicating revised timelines transparently to stakeholders. 3. Result: Delivering a viable iteration without team burnout and maintaining quality standards."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "Give an example of a high-stakes ethical or professional dilemma you encountered at work. How did you resolve it?",
+    "idealAnswerOutline": "1. Context: Unveiling a privacy risk, data breach concern, or pressure to cut corners on security/compliance. 2. Ethical decision-making: Consulting company policies, seeking guidance from trusted leadership or legal counsel. 3. Courageous action: Speaking up respectfully with facts and alternatives. 4. Outcome: Protecting company reputation and user trust."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "HR",
+    "difficulty": "HARD",
+    "questionText": "Describe a situation where you failed to meet a major goal or commitment. How did you take ownership and turn the experience into growth?",
+    "idealAnswerOutline": "1. Honest ownership: Stating the failure clearly without deflecting blame onto external factors or colleagues. 2. Root cause: Analyzing what went wrong (e.g. poor estimation, inadequate risk assessment, underestimating dependencies). 3. Corrective action: Immediate remediation and long-term process adjustments implemented. 4. Demonstrable growth in subsequent projects."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "TECHNICAL",
+    "difficulty": "EASY",
+    "questionText": "What key metrics and tools would you use to evaluate employee retention, turnover rate, and recruitment pipeline efficiency?",
+    "idealAnswerOutline": "1. Core HR metrics: Voluntary vs involuntary turnover rate, Time-to-Hire, Cost-per-Hire, Offer Acceptance Rate (OAR). 2. Retention metrics: Early turnover (within 90 days), Employee Net Promoter Score (eNPS). 3. HRIS and ATS tools (Workday, Greenhouse, BambooHR) for tracking pipeline conversion stages."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "TECHNICAL",
+    "difficulty": "MEDIUM",
+    "questionText": "How would you design a structured, bias-reduced technical interviewing and evaluation process across an engineering organization?",
+    "idealAnswerOutline": "1. Standardized rubrics with clear behavioral anchors and objective scoring criteria. 2. Structured interview rounds (system design, coding, cultural alignment) with consistent question sets. 3. Diverse interview panels and independent feedback submission before debrief calibration. 4. Regular interviewer training and anti-bias coaching."
+  },
+  {
+    "targetRole": "General HR",
+    "interviewType": "TECHNICAL",
+    "difficulty": "HARD",
+    "questionText": "Explain how data privacy regulations such as GDPR and CCPA impact HR data systems, employee monitoring, and recruitment tracking.",
+    "idealAnswerOutline": "1. Principles of data minimization, lawful basis of processing (consent vs legitimate interest/contractual necessity), and purpose limitation. 2. Data subject access requests (DSAR) and right to erasure for applicant and employee records. 3. Security controls: Access control, encryption at rest/transit, data retention schedules. 4. Vendor compliance management for cloud HR SaaS platforms."
+  }
+]
